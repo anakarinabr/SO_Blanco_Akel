@@ -88,11 +88,11 @@ public class Queue<T> {
         String output = "";
         for (int i = 0; i < this.size; i++) {
             T data = this.pHead.getData();
-            output += data + "->";
+            output += data + " | ";
             this.Dequeue();
             this.Enqueue(data);
         }
-        return output + "//";
+        return output;
     }
 
     public Node<T> getpHead() {
