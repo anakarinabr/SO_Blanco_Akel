@@ -16,7 +16,8 @@ public class Estudio {
     private Queue queue1;
     private Queue queue2;
     private Queue queue3;
-    private Queue queueRef;
+    private Queue queueRefuerzo;
+    private Queue queueGanadores;
     private int contadorPersonajes;
 
     public Estudio(String nombre) {
@@ -24,7 +25,8 @@ public class Estudio {
         this.queue1 = new Queue<Personaje>();
         this.queue2 = new Queue<Personaje>();
         this.queue3 = new Queue<Personaje>();
-        this.queueRef = new Queue<Personaje>();
+        this.queueRefuerzo = new Queue<Personaje>();
+        this.queueGanadores = new Queue<Personaje>();
         this.contadorPersonajes = 0;
     }
     
@@ -101,12 +103,12 @@ public class Estudio {
         this.queue3 = queue3;
     }
 
-    public Queue getQueueRef() {
-        return queueRef;
+    public Queue getQueueRefuerzo() {
+        return queueRefuerzo;
     }
 
-    public void setQueueRef(Queue queueRef) {
-        this.queueRef = queueRef;
+    public void setQueueRef(Queue queueRefuerzo) {
+        this.queueRefuerzo = queueRefuerzo;
     }
 
     public int getContadorPersonajes() {
@@ -116,6 +118,5 @@ public class Estudio {
     public void setContadorPersonajes(int contadorPersonajes) {
         this.contadorPersonajes = contadorPersonajes;
     }
-    
-    
+     
 }
