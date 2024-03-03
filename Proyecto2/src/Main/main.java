@@ -22,6 +22,7 @@ public class main {
     
     public static void main(String[] args) {
        Simulación interfaz = new Simulación();
+       interfaz.setVisible(true);
     }
     
 }

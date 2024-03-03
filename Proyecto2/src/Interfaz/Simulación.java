@@ -117,13 +117,12 @@ public class Simulación extends javax.swing.JFrame {
 
         EstadoIA.setText("jLabel3");
         getContentPane().add(EstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 110, -1));
-        getContentPane().add(DuracionBatalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
+        getContentPane().add(DuracionBatalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 50, 100, -1));
 
         CompetidorUSM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonajesUnShowMas/Gary.png"))); // NOI18N
         getContentPane().add(CompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Colorful INTERFAZ (800 x 500 px).png"))); // NOI18N
-        jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
