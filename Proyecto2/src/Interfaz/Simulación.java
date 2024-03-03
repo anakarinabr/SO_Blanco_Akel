@@ -28,8 +28,29 @@ public class Simulación extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        ejemplopersonaje = new javax.swing.JLabel();
-        Fondo = new javax.swing.JLabel();
+        CompetirdorAVT = new javax.swing.JLabel();
+        Cola1AVT = new javax.swing.JLabel();
+        Cola2AVT = new javax.swing.JLabel();
+        RefuerzoAVT = new javax.swing.JLabel();
+        Cola3AVT = new javax.swing.JLabel();
+        Cola1USM = new javax.swing.JLabel();
+        Cola2USM = new javax.swing.JLabel();
+        Cola3USM = new javax.swing.JLabel();
+        RefuerzoUSM = new javax.swing.JLabel();
+        HabilidadAVT = new javax.swing.JLabel();
+        VidaAVT = new javax.swing.JLabel();
+        AgilidadAVT = new javax.swing.JLabel();
+        FuerzaAVT = new javax.swing.JLabel();
+        HabilidadUSM = new javax.swing.JLabel();
+        VidaUSM = new javax.swing.JLabel();
+        FuerzaUSM = new javax.swing.JLabel();
+        AgilidadUSM = new javax.swing.JLabel();
+        ColaGanadores = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        EstadoIA = new javax.swing.JLabel();
+        DuracionBatalla = new javax.swing.JSpinner();
+        CompetidorUSM = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -37,11 +58,73 @@ public class Simulación extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 64, -1, -1));
 
-        ejemplopersonaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonajesAvatar/hama.png"))); // NOI18N
-        getContentPane().add(ejemplopersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
+        CompetirdorAVT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonajesAvatar/hama.png"))); // NOI18N
+        getContentPane().add(CompetirdorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Colorful INTERFAZ.png"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
+        Cola1AVT.setText("jLabel1");
+        getContentPane().add(Cola1AVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 170, 30));
+
+        Cola2AVT.setText("jLabel2");
+        getContentPane().add(Cola2AVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 180, 30));
+
+        RefuerzoAVT.setText("jLabel3");
+        getContentPane().add(RefuerzoAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 180, 30));
+
+        Cola3AVT.setText("jLabel4");
+        getContentPane().add(Cola3AVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 170, 30));
+
+        Cola1USM.setText("jLabel5");
+        getContentPane().add(Cola1USM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 180, 30));
+
+        Cola2USM.setText("jLabel6");
+        getContentPane().add(Cola2USM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 180, 30));
+
+        Cola3USM.setText("jLabel7");
+        getContentPane().add(Cola3USM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 180, 30));
+
+        RefuerzoUSM.setText("jLabel8");
+        getContentPane().add(RefuerzoUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, 180, 30));
+
+        HabilidadAVT.setText("0");
+        getContentPane().add(HabilidadAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 20, -1));
+
+        VidaAVT.setText("0");
+        getContentPane().add(VidaAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 20, -1));
+
+        AgilidadAVT.setText("0");
+        getContentPane().add(AgilidadAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 20, -1));
+
+        FuerzaAVT.setText("0");
+        getContentPane().add(FuerzaAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 20, -1));
+
+        HabilidadUSM.setText("0");
+        getContentPane().add(HabilidadUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 20, -1));
+
+        VidaUSM.setText("0");
+        getContentPane().add(VidaUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 20, -1));
+
+        FuerzaUSM.setText("0");
+        getContentPane().add(FuerzaUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 20, -1));
+
+        AgilidadUSM.setText("0");
+        getContentPane().add(AgilidadUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 20, -1));
+
+        ColaGanadores.setText("jLabel1");
+        getContentPane().add(ColaGanadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 280, 30));
+
+        jButton1.setText("Actualizar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, -1, -1));
+
+        EstadoIA.setText("jLabel3");
+        getContentPane().add(EstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 110, -1));
+        getContentPane().add(DuracionBatalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
+
+        CompetidorUSM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonajesUnShowMas/Gary.png"))); // NOI18N
+        getContentPane().add(CompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Colorful INTERFAZ (800 x 500 px).png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -82,8 +165,29 @@ public class Simulación extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Fondo;
-    private javax.swing.JLabel ejemplopersonaje;
+    private javax.swing.JLabel AgilidadAVT;
+    private javax.swing.JLabel AgilidadUSM;
+    private javax.swing.JLabel Cola1AVT;
+    private javax.swing.JLabel Cola1USM;
+    private javax.swing.JLabel Cola2AVT;
+    private javax.swing.JLabel Cola2USM;
+    private javax.swing.JLabel Cola3AVT;
+    private javax.swing.JLabel Cola3USM;
+    private javax.swing.JLabel ColaGanadores;
+    private javax.swing.JLabel CompetidorUSM;
+    private javax.swing.JLabel CompetirdorAVT;
+    private javax.swing.JSpinner DuracionBatalla;
+    private javax.swing.JLabel EstadoIA;
+    private javax.swing.JLabel FuerzaAVT;
+    private javax.swing.JLabel FuerzaUSM;
+    private javax.swing.JLabel HabilidadAVT;
+    private javax.swing.JLabel HabilidadUSM;
+    private javax.swing.JLabel RefuerzoAVT;
+    private javax.swing.JLabel RefuerzoUSM;
+    private javax.swing.JLabel VidaAVT;
+    private javax.swing.JLabel VidaUSM;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

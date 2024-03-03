@@ -8,7 +8,7 @@ package Estructuras;
  *
  * @author Ana Blanco
  */
-public class Administrador extends Thread {
+public class Administrador{
     
     private Simulacion simulacion;
     

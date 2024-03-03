@@ -6,6 +6,7 @@ package Main;
 
 import Estructuras.Estudio;
 import Estructuras.Simulacion;
+import Interfaz.Simulación;
 
 /**
  *
@@ -19,9 +20,8 @@ public class main {
     
     public static Simulacion simulacion = new Simulacion("AVT", "USM",1000);
     
-    
     public static void main(String[] args) {
-        // TODO code application logic here
+       Simulación interfaz = new Simulación();
     }
     
 }

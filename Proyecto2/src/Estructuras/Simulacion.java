@@ -5,6 +5,8 @@
 package Estructuras;
 
 import static Main.main.simulacion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,7 +24,7 @@ public class Simulacion extends Thread{
         this.estudio1 = new Estudio(estudio1);
         this.estudio2 =new Estudio(estudio2);
         this.time= time;
-        this.AI = new InteligenciaArtificial(time);
+        this.AI = new InteligenciaArtificial(time, this);
         this.admin = new Administrador(this);
     }
     
@@ -33,6 +35,13 @@ public class Simulacion extends Thread{
                 Personaje personaje = this.getEstudio1().GeneradorPersonajes();
                 Personaje personaje2 = this.getEstudio2().GeneradorPersonajes();
                 this.admin.encolarPersonajes(personaje, personaje2);
+            }
+            
+            
+            try {
+                sleep(time*1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Simulacion.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -78,7 +87,5 @@ public class Simulacion extends Thread{
     public void setAI(InteligenciaArtificial AI) {
         this.AI = AI;
     }
-    
-    
     
 }

@@ -47,7 +47,11 @@ public class Estudio {
         random = new Random();
         int agilidad = random.nextInt(101);
         
-        
+//        Para la cola1, será prioridad 1
+//        para la cola2, sera prioridad 2
+//        para la cola3, sera prioridad 3
+//        para la de refuerzo, sera prioridad 0
+//        
         int prioridad = 0;
         if (habilidades <60) { 
             prioridad++;   // 60% 
