@@ -18,10 +18,11 @@ public class main {
      * @param args the command line arguments
      */
     
-    public static Simulacion simulacion = new Simulacion("AVT", "USM",1000);
+    public static Simulacion simulacion = new Simulacion("AVT", "USM",10000);
+    public static Simulación interfaz = new Simulación();
     
     public static void main(String[] args) {
-       Simulación interfaz = new Simulación();
+       simulacion.start();
        interfaz.setVisible(true);
     }
     

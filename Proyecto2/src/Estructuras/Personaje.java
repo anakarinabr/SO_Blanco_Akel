@@ -12,16 +12,13 @@ import java.util.Random;
  */
 public class Personaje {
     private String id;
-    private String[] datos;
+    private String[] datos; // {url, nombre}
     private int prioridad;
     private String estudio; 
     private boolean winner;
-    private int[] caracteristicas; //podemos hacer que las caracteristicas (PODER) sean 3 numeros, del 1 al 10 que sea su fuerza, poder y vida para hacer la escogencia con esos factores, y que la suma de esos numeros de un personaje vs la del otro, gane el que sea mayor, igual...
+    private int[] caracteristicas; //array con los valores de habilidad, vida, fuerza y agilidad
     private String [] poder;//otra opcion es crear dos poderes para avatar y 2 para usm y establecer cual es mejor que cual y asi esta la oppcion de empate ganador o que ninguno gane tambien idk son las dos ideas que se me ocurren 
-    private int habilidad;
-    private int vida;
-    private int fuerza;
-    private int agilidad;
+   
     
     private String [][] datosPersonajesUSM = {{"src//PersonajesUnShowMas/Gary.png", "Gary"}, {"src//PersonajesUnShowMas/benson.png","Benson"}, {"src//PersonajesUnShowMas/carl.png", "Carl"}, {"src//PersonajesUnShowMas/cj.png", "CJ"}, 
         {"src//PersonajesUnShowMas/dr henry.png", "Dr Henry"}, {"src//PersonajesUnShowMas/eileen.png", "Eileen"}, {"src//PersonajesUnShowMas/fantasmin.png", "Fantasmin"}, {"src//PersonajesUnShowMas/jennifer.png", "Jeniffer"}, {"src//PersonajesUnShowMas/maellard.png", "Maellard"}, 
@@ -33,15 +30,18 @@ public class Personaje {
         {"src//PersonajesAvatar/onji.png"}, {"src//PersonajesAvatar/ozai.png","Ozai"}, {"src//PersonajesAvatar/pipsqueak.png", "Pipsqueak"}, {"src//PersonajesAvatar/princesa yue.png", "Princesa Yue"}, {"src//PersonajesAvatar/principe zuko.png", "Principe Zuko"}, 
         {"src//PersonajesAvatar/sokka.png", "Sokka"},{"src//PersonajesAvatar/toph beifong.png", "Toph Beifong"}, {"src//PersonajesAvatar/ty lee.png", "Ty Lee"}};
 
+    @SuppressWarnings("empty-statement")
     public Personaje(String id, int prioridad, String estudio,int habilidad, int vida, int fuerza, int agilidad) {
         this.id = id;
         this.datos = InfoPersonaje(estudio);
         this.prioridad = prioridad;
         this.estudio = estudio;
-        this.habilidad = habilidad;
-        this.vida = vida;
-        this.fuerza = fuerza;
-        this.agilidad = agilidad;        
+        this.caracteristicas = new int[4];
+        this.caracteristicas[0] = habilidad;
+        this.caracteristicas[1] = vida;
+        this.caracteristicas[2] = fuerza;
+        this.caracteristicas[3]=agilidad;
+                
     }
     
     private String[] InfoPersonaje(String estudio){

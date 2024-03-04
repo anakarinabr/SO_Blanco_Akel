@@ -122,5 +122,15 @@ public class Estudio {
     public void setContadorPersonajes(int contadorPersonajes) {
         this.contadorPersonajes = contadorPersonajes;
     }
+
+    public Queue getQueueGanadores() {
+        return queueGanadores;
+    }
+
+    public void setQueueGanadores(Queue queueGanadores) {
+        this.queueGanadores = queueGanadores;
+    }
+    
+    
      
 }

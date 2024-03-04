@@ -87,10 +87,11 @@ public class Queue<T> {
     public String print() {
         String output = "";
         for (int i = 0; i < this.size; i++) {
-            T data = this.pHead.getData();
-            output += data + " | ";
+            Personaje data = (Personaje)this.pHead.getData();
+            String id = data.getId();
+            output += id + " | ";
             this.Dequeue();
-            this.Enqueue(data);
+            this.Enqueue((T)data);
         }
         return output;
     }
