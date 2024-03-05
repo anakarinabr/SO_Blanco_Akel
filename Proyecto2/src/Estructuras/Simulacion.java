@@ -45,8 +45,8 @@ public class Simulacion extends Thread {
             Personaje[] competidores = this.admin.EscogerPersonajes();
             ActualizarLabels(competidores);
             this.AI.batalla(competidores[0], competidores[1]);
-            this.estudio1.Inanicion();
-            this.estudio2.Inanicion();
+//            this.estudio1.Inanicion();
+//            this.estudio2.Inanicion();
             try {
                 sleep(time * 1000);
             } catch (InterruptedException ex) {

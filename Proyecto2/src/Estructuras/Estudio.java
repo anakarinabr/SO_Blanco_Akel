@@ -79,30 +79,34 @@ public class Estudio {
 
     public void Inanicion() { //REVISAR
         //Pasar de prioridad 2 a 1
-        Node pAux = this.getQueue2().getpHead();
-        
+        Node pAux = null;
+        if (!this.getQueue2().isEmpty()) {
+            pAux = this.getQueue2().getpHead();
+        }
         while (pAux != null) {
 
             Personaje temporal = (Personaje) pAux.getData();
             temporal.setContadorCiclos(temporal.getContadorCiclos() + 1);
 
-            if (temporal.getContadorCiclos() == 3) {
+            if (temporal.getContadorCiclos() == 8) {
                 this.queue2.EliminarPersonaje(temporal);
                 this.queue1.Enqueue(temporal);
                 temporal.setContadorCiclos(0);
             }
             pAux = pAux.getpNext();
         }
-        
+
         //Pasar de prioridad 3 a 2
-        Node pAux2 = this.getQueue3().getpHead();
-        
+        Node pAux2 = null;
+        if (!this.queue3.isEmpty()) {
+            this.getQueue3().getpHead();
+        }
         while (pAux2 != null) {
 
             Personaje temporal1 = (Personaje) pAux2.getData();
             temporal1.setContadorCiclos(temporal1.getContadorCiclos() + 1);
 
-            if (temporal1.getContadorCiclos() == 3) {
+            if (temporal1.getContadorCiclos() == 8) {
                 this.queue3.EliminarPersonaje(temporal1);
                 this.queue2.Enqueue(temporal1);
                 temporal1.setContadorCiclos(0);

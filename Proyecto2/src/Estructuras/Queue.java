@@ -100,6 +100,7 @@ public class Queue<T> {
         if (!this.isEmpty()){
             Node pAux = this.pHead;
             Personaje pAuxp = (Personaje)pAux.getData();
+            
             if(pAuxp.getId() == personaje.getId()){
                 this.pHead = this.pHead.getpNext();
                 if(this.pHead == null){
@@ -110,6 +111,9 @@ public class Queue<T> {
                 while(pAux != null && pAuxp.getId()!= personaje.getId()){
                    previo = pAux;
                    pAux = pAux.getpNext();
+                   if(pAux!= null){
+                       pAuxp = (Personaje)pAux.getData();
+                   }
                 } 
                 if(pAux!= null){
                     previo.setpNext(pAux.getpNext());
@@ -118,6 +122,8 @@ public class Queue<T> {
                     }
                 }
             }
+        }else{
+            System.out.println("La cola está vacia");
         }
     }
 
