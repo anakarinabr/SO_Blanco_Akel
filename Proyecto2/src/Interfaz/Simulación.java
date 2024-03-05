@@ -22,7 +22,7 @@ public class Simulación extends javax.swing.JFrame {
     public Simulación() {
         initComponents();
         this.setLocationRelativeTo(null);
-        DuracionBatalla.setValue(simulacion.getTime()/1000);
+        DuracionBatalla.setValue(simulacion.getTime());
     }
 
     /**
@@ -141,10 +141,10 @@ public class Simulación extends javax.swing.JFrame {
         getContentPane().add(ColaGanadoresUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 190, 30));
 
         NombreCompetidorAVT.setText("jLabel1");
-        getContentPane().add(NombreCompetidorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 110, -1));
+        getContentPane().add(NombreCompetidorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 130, -1));
 
         NombreCompetidorUSM.setText("jLabel2");
-        getContentPane().add(NombreCompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 110, -1));
+        getContentPane().add(NombreCompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 140, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Colorful INTERFAZ (800 x 500 px).png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

@@ -95,6 +95,31 @@ public class Queue<T> {
         }
         return output;
     }
+    
+    public void EliminarPersonaje(Personaje personaje){
+        if (!this.isEmpty()){
+            Node pAux = this.pHead;
+            Personaje pAuxp = (Personaje)pAux.getData();
+            if(pAuxp.getId() == personaje.getId()){
+                this.pHead = this.pHead.getpNext();
+                if(this.pHead == null){
+                        this.pTail = null;
+                }
+            }else{
+                Node previo = null;
+                while(pAux != null && pAuxp.getId()!= personaje.getId()){
+                   previo = pAux;
+                   pAux = pAux.getpNext();
+                } 
+                if(pAux!= null){
+                    previo.setpNext(pAux.getpNext());
+                    if(pAux == this.pTail){
+                        this.pTail = previo;
+                    }
+                }
+            }
+        }
+    }
 
     public Node<T> getpHead() {
         return pHead;

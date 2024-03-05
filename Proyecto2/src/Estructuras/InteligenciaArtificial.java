@@ -24,7 +24,7 @@ public class InteligenciaArtificial{
     }
     
     public void batalla(Personaje personaje1, Personaje personaje2){
-         Random random = new Random();
+        Random random = new Random();
         int numprobabilidad = random.nextInt(101);
         
         if(numprobabilidad <=0 && numprobabilidad<=39){ //Existir Ganador

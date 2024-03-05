@@ -11,7 +11,7 @@ import java.util.Random;
  * @author Ana Blanco
  */
 public class Estudio {
-    
+
     private String nombre;
     private Queue queue1;
     private Queue queue2;
@@ -29,51 +29,88 @@ public class Estudio {
         this.queueGanadores = new Queue<Personaje>();
         this.contadorPersonajes = 0;
     }
-    
-    public Personaje GeneradorPersonajes(){
-        
+
+    public Personaje GeneradorPersonajes() {
+
         this.contadorPersonajes++;
         String id = this.getNombre() + this.getContadorPersonajes();
-        
+
         Random random = new Random();
-        int habilidades  = random.nextInt(101);
-        
+        int habilidades = random.nextInt(101);
+
         random = new Random();
         int vida = random.nextInt(101);
-        
+
         random = new Random();
-        int fuerza =  random.nextInt(101);
-        
+        int fuerza = random.nextInt(101);
+
         random = new Random();
         int agilidad = random.nextInt(101);
-        
+
 //        Para la cola1, será prioridad 1
 //        para la cola2, sera prioridad 2
 //        para la cola3, sera prioridad 3
-//        para la de refuerzo, sera prioridad 0
 //        
         int prioridad = 0;
-        if (habilidades <60) { 
+        if (habilidades < 60) {
             prioridad++;   // 60% 
-        }if (vida < 70) { 
+        }
+        if (vida < 70) {
             prioridad++;   // 70% 
-        }if (fuerza < 50) {
+        }
+        if (fuerza < 50) {
             prioridad++;   // 50% 
-        }if (agilidad < 40) {
+        }
+        if (agilidad < 40) {
             prioridad++;   // 40% 
-        }    
-        
-        if (prioridad  == 4) {
+        }
+
+        if (prioridad == 4) {
             prioridad = 3;
-        }if (prioridad  == 0) {
+        }
+        if (prioridad == 0) {
             prioridad = 1;
-        } 
-        
+        }
+
         Personaje personaje = new Personaje(id, prioridad, this.nombre, habilidades, vida, fuerza, agilidad);
         return personaje;
-                
-    }  
-    
+
+    }
+
+    public void Inanicion() { //REVISAR
+        //Pasar de prioridad 2 a 1
+        Node pAux = this.getQueue2().getpHead();
+        
+        while (pAux != null) {
+
+            Personaje temporal = (Personaje) pAux.getData();
+            temporal.setContadorCiclos(temporal.getContadorCiclos() + 1);
+
+            if (temporal.getContadorCiclos() == 3) {
+                this.queue2.EliminarPersonaje(temporal);
+                this.queue1.Enqueue(temporal);
+                temporal.setContadorCiclos(0);
+            }
+            pAux = pAux.getpNext();
+        }
+        
+        //Pasar de prioridad 3 a 2
+        Node pAux2 = this.getQueue3().getpHead();
+        
+        while (pAux2 != null) {
+
+            Personaje temporal1 = (Personaje) pAux2.getData();
+            temporal1.setContadorCiclos(temporal1.getContadorCiclos() + 1);
+
+            if (temporal1.getContadorCiclos() == 3) {
+                this.queue3.EliminarPersonaje(temporal1);
+                this.queue2.Enqueue(temporal1);
+                temporal1.setContadorCiclos(0);
+            }
+            pAux2 = pAux2.getpNext();
+        }
+    }
+
     //GETTERS AND SETTERS
     public String getNombre() {
         return nombre;
@@ -130,7 +167,5 @@ public class Estudio {
     public void setQueueGanadores(Queue queueGanadores) {
         this.queueGanadores = queueGanadores;
     }
-    
-    
-     
+
 }

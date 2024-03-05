@@ -17,6 +17,7 @@ public class Personaje {
     private String estudio; 
     private boolean winner;
     private int[] caracteristicas; //array con los valores de habilidad, vida, fuerza y agilidad
+    private int contadorCiclos;
     private String [] poder;//otra opcion es crear dos poderes para avatar y 2 para usm y establecer cual es mejor que cual y asi esta la oppcion de empate ganador o que ninguno gane tambien idk son las dos ideas que se me ocurren 
    
     
@@ -41,6 +42,7 @@ public class Personaje {
         this.caracteristicas[1] = vida;
         this.caracteristicas[2] = fuerza;
         this.caracteristicas[3]=agilidad;
+        this.contadorCiclos = 0;
                 
     }
     
@@ -106,5 +108,14 @@ public class Personaje {
     public void setPoder(String[] poder) {
         this.poder = poder;
     }
+
+    public int getContadorCiclos() {
+        return contadorCiclos;
+    }
+
+    public void setContadorCiclos(int contadorCiclos) {
+        this.contadorCiclos = contadorCiclos;
+    }   
+    
     
 }
