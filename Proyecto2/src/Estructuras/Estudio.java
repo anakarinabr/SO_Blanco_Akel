@@ -76,12 +76,12 @@ public class Estudio {
         return personaje;
 
     }
-
-    public void Inanicion() { //REVISAR
+    
+    public void inanicion() { 
         //Pasar de prioridad 2 a 1
         Node pAux = null;
-        if (!this.getQueue2().isEmpty()) {
-            pAux = this.getQueue2().getpHead();
+        if (!queue2.isEmpty()) {
+            pAux = queue2.getpHead();
         }
         while (pAux != null) {
 
@@ -89,8 +89,8 @@ public class Estudio {
             temporal.setContadorCiclos(temporal.getContadorCiclos() + 1);
 
             if (temporal.getContadorCiclos() == 8) {
-                this.queue2.EliminarPersonaje(temporal);
-                this.queue1.Enqueue(temporal);
+                queue2.EliminarPersonaje(temporal);
+                queue1.Enqueue(temporal);
                 temporal.setContadorCiclos(0);
             }
             pAux = pAux.getpNext();
@@ -98,8 +98,8 @@ public class Estudio {
 
         //Pasar de prioridad 3 a 2
         Node pAux2 = null;
-        if (!this.queue3.isEmpty()) {
-            this.getQueue3().getpHead();
+        if (!queue3.isEmpty()) {
+            pAux2 = queue3.getpHead();
         }
         while (pAux2 != null) {
 
@@ -107,8 +107,8 @@ public class Estudio {
             temporal1.setContadorCiclos(temporal1.getContadorCiclos() + 1);
 
             if (temporal1.getContadorCiclos() == 8) {
-                this.queue3.EliminarPersonaje(temporal1);
-                this.queue2.Enqueue(temporal1);
+                queue3.EliminarPersonaje(temporal1);
+                queue2.Enqueue(temporal1);
                 temporal1.setContadorCiclos(0);
             }
             pAux2 = pAux2.getpNext();

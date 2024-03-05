@@ -49,13 +49,13 @@ public class Queue<T> {
         boolean b = false;
         for (int i = 0; i < this.size; i++) {
             T data = this.pHead.getData();
-            if(valor == data){
+            if (valor == data) {
                 b = true;
             }
             this.Dequeue();
             this.Enqueue(data);
         }
-        
+
         return b;
     }
 
@@ -86,43 +86,49 @@ public class Queue<T> {
 
     public String print() {
         String output = "";
-        for (int i = 0; i < this.size; i++) {
-            Personaje data = (Personaje)this.pHead.getData();
-            String id = data.getId();
-            output += id + " | ";
-            this.Dequeue();
-            this.Enqueue((T)data);
+        if (this.pHead!= null) {
+            for (int i = 0; i < this.size; i++) {
+                Personaje data = (Personaje) this.pHead.getData();
+                String id = data.getId();
+                output += id + " | ";
+                this.Dequeue();
+                this.Enqueue((T) data);
+            }
+        }else{
+            return "";
         }
         return output;
     }
-    
-    public void EliminarPersonaje(Personaje personaje){
-        if (!this.isEmpty()){
+
+    public void EliminarPersonaje(Personaje personaje) {
+        if (!this.isEmpty()) {
             Node pAux = this.pHead;
-            Personaje pAuxp = (Personaje)pAux.getData();
-            
-            if(pAuxp.getId() == personaje.getId()){
+            Personaje pAuxp = (Personaje) pAux.getData();
+
+            if (pAuxp.getId() == personaje.getId()) {
                 this.pHead = this.pHead.getpNext();
-                if(this.pHead == null){
-                        this.pTail = null;
+                if (this.pHead == null) {
+                    this.pTail = null;
                 }
-            }else{
+                this.size--;
+            } else {
                 Node previo = null;
-                while(pAux != null && pAuxp.getId()!= personaje.getId()){
-                   previo = pAux;
-                   pAux = pAux.getpNext();
-                   if(pAux!= null){
-                       pAuxp = (Personaje)pAux.getData();
-                   }
-                } 
-                if(pAux!= null){
-                    previo.setpNext(pAux.getpNext());
-                    if(pAux == this.pTail){
-                        this.pTail = previo;
+                while (pAux != null && pAuxp.getId() != personaje.getId()) {
+                    previo = pAux;
+                    pAux = pAux.getpNext();
+                    if (pAux != null) {
+                        pAuxp = (Personaje) pAux.getData();
                     }
                 }
+                if (pAux != null) {
+                    previo.setpNext(pAux.getpNext());
+                    if (pAux == this.pTail) {
+                        this.pTail = previo;
+                    }
+                    size--;
+                }
             }
-        }else{
+        } else {
             System.out.println("La cola está vacia");
         }
     }
@@ -152,4 +158,3 @@ public class Queue<T> {
     }
 
 }
-

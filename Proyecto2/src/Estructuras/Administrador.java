@@ -75,7 +75,7 @@ public class Administrador {
         } else {
 
             if (!simulacion.getEstudio2().getQueue2().isEmpty()) {
-                escogidos[1] = (Personaje) simulacion.getEstudio1().getQueue2().Dequeue().getData();
+                escogidos[1] = (Personaje) simulacion.getEstudio2().getQueue2().Dequeue().getData();
             } else {
 
                 if (!simulacion.getEstudio2().getQueue3().isEmpty()) {
