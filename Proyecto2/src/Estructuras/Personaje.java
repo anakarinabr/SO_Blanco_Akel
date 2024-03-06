@@ -41,7 +41,7 @@ public class Personaje {
         this.caracteristicas[0] = habilidad;
         this.caracteristicas[1] = vida;
         this.caracteristicas[2] = fuerza;
-        this.caracteristicas[3]=agilidad;
+        this.caracteristicas[3] = agilidad;
         this.contadorCiclos = 0;
                 
     }

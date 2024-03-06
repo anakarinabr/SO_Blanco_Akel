@@ -27,8 +27,25 @@ public class InteligenciaArtificial{
         Random random = new Random();
         int numprobabilidad = random.nextInt(101);
         
+        int puntajePersonaje1 = calcularPuntaje(personaje1);
+        int puntajePersonaje2 = calcularPuntaje(personaje2);
+        
         if(numprobabilidad <=0 && numprobabilidad<=39){ //Existir Ganador
-           //FALTA POR DECIDIR
+            
+            if (puntajePersonaje1 > puntajePersonaje2){
+                System.out.println("El ganador es: " + personaje1.getId());
+                personaje1.setWinner(true);
+                personaje2.setWinner(false);
+                this.simulacion.getEstudio1().getQueueGanadores().Enqueue(personaje1);
+                this.simulacion.getEstudio2().getQueueGanadores().Enqueue(personaje2);
+            }else{  // Personaje1 < Personaje2) 
+                System.out.println("El ganador es: " + personaje2.getId());
+                personaje1.setWinner(false);
+                personaje2.setWinner(true);
+                this.simulacion.getEstudio1().getQueueGanadores().Enqueue(personaje2);
+                this.simulacion.getEstudio2().getQueueGanadores().Enqueue(personaje1);
+            }
+            
         }else if(numprobabilidad >=40 && numprobabilidad<= 66){ //Empate
             System.out.println("Ocurrio un empate, los personajes vuelven a la cola 1");
             this.simulacion.getEstudio1().getQueue1().Enqueue(personaje1);
@@ -38,6 +55,15 @@ public class InteligenciaArtificial{
             this.simulacion.getEstudio1().getQueueRefuerzo().Enqueue(personaje1);
             this.simulacion.getEstudio2().getQueueRefuerzo().Enqueue(personaje2);
         }
+    }
+    
+    public int calcularPuntaje(Personaje personaje){
+        int habilidad = personaje.getCaracteristicas()[0];
+        int vida = personaje.getCaracteristicas()[1];
+        int fuerza = personaje.getCaracteristicas()[2];
+        int agilidad = personaje.getCaracteristicas()[3];
+        
+        return habilidad + vida + fuerza + agilidad;
     }
     
     //GETTERS AND SETTERS

@@ -36,16 +36,16 @@ public class Estudio {
         String id = this.getNombre() + this.getContadorPersonajes();
 
         Random random = new Random();
-        int habilidades = random.nextInt(101);
+        int habilidades = random.nextInt(100) + 1;
 
         random = new Random();
-        int vida = random.nextInt(101);
+        int vida = random.nextInt(100) + 1;
 
         random = new Random();
-        int fuerza = random.nextInt(101);
+        int fuerza = random.nextInt(100) + 1;
 
         random = new Random();
-        int agilidad = random.nextInt(101);
+        int agilidad = random.nextInt(101) + 1;
 
 //        Para la cola1, será prioridad 1
 //        para la cola2, sera prioridad 2

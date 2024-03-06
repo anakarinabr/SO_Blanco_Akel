@@ -83,6 +83,18 @@ public class Simulacion extends Thread {
         interfaz.getAgilidadUSM().setText(Integer.toString(competidores[1].getCaracteristicas()[3]));
         interfaz.getColaGanadoresUSM().setText(this.estudio2.getQueueGanadores().print());
 
+        //Mostrar ganador
+        if (competidores[0].isWinner()){
+                interfaz.getEstadoIA().setText("Ganador: " + competidores[0].getId());
+        } else if (competidores[1].isWinner()) {
+            interfaz.getEstadoIA().setText("Ganador: " + competidores[1].getId());
+        } else {
+            interfaz.getEstadoIA().setText("Empate");
+        }
+        
+        
+        
+        
         try {
             interfaz.getCompetidorAVT().setIcon(new ImageIcon(ImageIO.read(new File(competidores[0].getDatos()[0]))));
             interfaz.getCompetidorUSM().setIcon(new ImageIcon(ImageIO.read(new File(competidores[1].getDatos()[0]))));
