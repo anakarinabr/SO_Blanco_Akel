@@ -5,11 +5,9 @@
 package Interfaz;
 
 import static Main.main.simulacion;
-import javax.accessibility.AccessibleContext;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRootPane;
 import javax.swing.JSpinner;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -74,7 +72,7 @@ public class Simulación extends javax.swing.JFrame {
         ColaGanadoresUSM = new javax.swing.JTextArea();
         colaganadoresavatar = new javax.swing.JScrollPane();
         ColaGanadoresAVT = new javax.swing.JTextArea();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -83,79 +81,111 @@ public class Simulación extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 64, -1, -1));
 
         CompetidorAVT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonajesAvatar/hama.png"))); // NOI18N
-        getContentPane().add(CompetidorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
+        getContentPane().add(CompetidorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
 
+        Cola1AVT.setBackground(new java.awt.Color(153, 204, 255));
         Cola1AVT.setColumns(20);
+        Cola1AVT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Cola1AVT.setLineWrap(true);
         Cola1AVT.setRows(5);
+        Cola1AVT.setWrapStyleWord(true);
         cola1avatar.setViewportView(Cola1AVT);
 
-        getContentPane().add(cola1avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, 70));
+        getContentPane().add(cola1avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 220, 80));
 
+        Cola2AVT.setBackground(new java.awt.Color(153, 204, 255));
         Cola2AVT.setColumns(20);
+        Cola2AVT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Cola2AVT.setLineWrap(true);
         Cola2AVT.setRows(5);
+        Cola2AVT.setWrapStyleWord(true);
         cola2avatar.setViewportView(Cola2AVT);
 
-        getContentPane().add(cola2avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, 70));
+        getContentPane().add(cola2avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 220, 80));
 
+        Cola3AVT.setBackground(new java.awt.Color(153, 204, 255));
         Cola3AVT.setColumns(20);
+        Cola3AVT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Cola3AVT.setLineWrap(true);
         Cola3AVT.setRows(5);
+        Cola3AVT.setWrapStyleWord(true);
         cola3avatar.setViewportView(Cola3AVT);
 
-        getContentPane().add(cola3avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, 70));
+        getContentPane().add(cola3avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 220, 80));
 
+        RefuerzoAVT.setBackground(new java.awt.Color(153, 204, 255));
         RefuerzoAVT.setColumns(20);
+        RefuerzoAVT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        RefuerzoAVT.setLineWrap(true);
         RefuerzoAVT.setRows(5);
+        RefuerzoAVT.setWrapStyleWord(true);
         refuerzoavatar.setViewportView(RefuerzoAVT);
 
-        getContentPane().add(refuerzoavatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, 70));
+        getContentPane().add(refuerzoavatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 220, 80));
 
+        Cola1USM.setBackground(new java.awt.Color(255, 204, 102));
         Cola1USM.setColumns(20);
+        Cola1USM.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Cola1USM.setLineWrap(true);
         Cola1USM.setRows(5);
+        Cola1USM.setWrapStyleWord(true);
         cola1unshowmas.setViewportView(Cola1USM);
 
-        getContentPane().add(cola1unshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, 70));
+        getContentPane().add(cola1unshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 220, 80));
 
+        Cola2USM.setBackground(new java.awt.Color(255, 204, 102));
         Cola2USM.setColumns(20);
+        Cola2USM.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Cola2USM.setLineWrap(true);
         Cola2USM.setRows(5);
+        Cola2USM.setWrapStyleWord(true);
         cola2unshowmas.setViewportView(Cola2USM);
 
-        getContentPane().add(cola2unshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, -1, 70));
+        getContentPane().add(cola2unshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, 220, 80));
 
+        Cola3USM.setBackground(new java.awt.Color(255, 204, 102));
         Cola3USM.setColumns(20);
+        Cola3USM.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Cola3USM.setLineWrap(true);
         Cola3USM.setRows(5);
+        Cola3USM.setWrapStyleWord(true);
         cola3unshowmas.setViewportView(Cola3USM);
 
-        getContentPane().add(cola3unshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, -1, 70));
+        getContentPane().add(cola3unshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 220, 80));
 
+        RefuerzoUSM.setBackground(new java.awt.Color(255, 204, 102));
         RefuerzoUSM.setColumns(20);
+        RefuerzoUSM.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        RefuerzoUSM.setLineWrap(true);
         RefuerzoUSM.setRows(5);
+        RefuerzoUSM.setWrapStyleWord(true);
         refuerzounshowmas.setViewportView(RefuerzoUSM);
 
-        getContentPane().add(refuerzounshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, -1, 60));
+        getContentPane().add(refuerzounshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 380, 220, 80));
 
         HabilidadAVT.setText("0");
-        getContentPane().add(HabilidadAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 40, -1));
+        getContentPane().add(HabilidadAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 40, -1));
 
         VidaAVT.setText("0");
-        getContentPane().add(VidaAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 30, -1));
+        getContentPane().add(VidaAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 30, -1));
 
         AgilidadAVT.setText("0");
-        getContentPane().add(AgilidadAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 30, -1));
+        getContentPane().add(AgilidadAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 30, -1));
 
         FuerzaAVT.setText("0");
-        getContentPane().add(FuerzaAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 30, -1));
+        getContentPane().add(FuerzaAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 30, -1));
 
         HabilidadUSM.setText("0");
-        getContentPane().add(HabilidadUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 30, 20));
+        getContentPane().add(HabilidadUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, 30, 20));
 
         VidaUSM.setText("0");
-        getContentPane().add(VidaUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 30, -1));
+        getContentPane().add(VidaUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 30, -1));
 
         FuerzaUSM.setText("0");
-        getContentPane().add(FuerzaUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 30, -1));
+        getContentPane().add(FuerzaUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 30, -1));
 
         AgilidadUSM.setText("0");
-        getContentPane().add(AgilidadUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 30, -1));
+        getContentPane().add(AgilidadUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, 30, -1));
 
         jButton1.setText("Actualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -163,35 +193,49 @@ public class Simulación extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 550, -1, -1));
 
+        EstadoIA.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        EstadoIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EstadoIA.setText("jLabel3");
-        getContentPane().add(EstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 110, -1));
-        getContentPane().add(DuracionBatalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 50, 100, -1));
+        getContentPane().add(EstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 110, -1));
+        getContentPane().add(DuracionBatalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 520, 100, -1));
 
         CompetidorUSM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonajesUnShowMas/Gary.png"))); // NOI18N
-        getContentPane().add(CompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
+        getContentPane().add(CompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
 
+        NombreCompetidorAVT.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        NombreCompetidorAVT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NombreCompetidorAVT.setText("jLabel1");
-        getContentPane().add(NombreCompetidorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 160, -1));
+        getContentPane().add(NombreCompetidorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 160, -1));
 
+        NombreCompetidorUSM.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        NombreCompetidorUSM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NombreCompetidorUSM.setText("jLabel2");
-        getContentPane().add(NombreCompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 150, -1));
+        getContentPane().add(NombreCompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 150, -1));
 
+        ColaGanadoresUSM.setBackground(new java.awt.Color(255, 204, 102));
         ColaGanadoresUSM.setColumns(20);
+        ColaGanadoresUSM.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ColaGanadoresUSM.setLineWrap(true);
         ColaGanadoresUSM.setRows(5);
+        ColaGanadoresUSM.setWrapStyleWord(true);
         colaganadoresunshowmas.setViewportView(ColaGanadoresUSM);
 
-        getContentPane().add(colaganadoresunshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, -1, 60));
+        getContentPane().add(colaganadoresunshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 500, 220, 80));
 
+        ColaGanadoresAVT.setBackground(new java.awt.Color(153, 204, 255));
         ColaGanadoresAVT.setColumns(20);
+        ColaGanadoresAVT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ColaGanadoresAVT.setLineWrap(true);
         ColaGanadoresAVT.setRows(5);
+        ColaGanadoresAVT.setWrapStyleWord(true);
         colaganadoresavatar.setViewportView(ColaGanadoresAVT);
 
-        getContentPane().add(colaganadoresavatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, -1, 60));
+        getContentPane().add(colaganadoresavatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 220, 80));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Colorful INTERFAZ (800 x 500 px).png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Colorful INTERFAZ (800 x 500 px) (2).png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -464,12 +508,12 @@ public class Simulación extends javax.swing.JFrame {
         this.jButton1 = jButton1;
     }
 
-    public JLabel getjLabel3() {
-        return jLabel3;
+    public JLabel getjLabel2() {
+        return jLabel2;
     }
 
-    public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
     }
 
     public JPanel getjPanel1() {
@@ -495,7 +539,7 @@ public class Simulación extends javax.swing.JFrame {
     public void setRefuerzounshowmas(JScrollPane refuerzounshowmas) {
         this.refuerzounshowmas = refuerzounshowmas;
     }
-
+    
     /**
      * @param args the command line arguments
      */
@@ -565,7 +609,7 @@ public class Simulación extends javax.swing.JFrame {
     private javax.swing.JScrollPane colaganadoresavatar;
     private javax.swing.JScrollPane colaganadoresunshowmas;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane refuerzoavatar;
     private javax.swing.JScrollPane refuerzounshowmas;

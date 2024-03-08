@@ -34,16 +34,16 @@ public class InteligenciaArtificial{
         
         if(numprobabilidad >=0 && numprobabilidad<=40){ //Existir Ganador
             if (puntajePersonaje1 >= puntajePersonaje2){
-                System.out.println("Puntaje AVT: " + puntajePersonaje1);
-                System.out.println("Puntaje USM: " + puntajePersonaje2);
+                System.out.println(personaje1.getId() + " Puntaje: " + puntajePersonaje1);
+                System.out.println(personaje2.getId() + " Puntaje: " + puntajePersonaje2);
                 System.out.println("El ganador es: " + personaje1.getId());
                 personaje1.setWinner(true);
                 personaje2.setWinner(false);
                // personaje1.isWinner();
                 this.simulacion.getEstudio1().getQueueGanadores().Enqueue(personaje1);
             }else{  // Personaje1 < Personaje2) 
-                System.out.println("Puntaje AVT: " + puntajePersonaje1);
-                System.out.println("Puntaje USM: " + puntajePersonaje2);
+                System.out.println(personaje1.getId() + " Puntaje: " + puntajePersonaje1);
+                System.out.println(personaje2.getId() + " Puntaje: " + puntajePersonaje2);
                 System.out.println("El ganador es: " + personaje2.getId());
                 personaje1.setWinner(false);
                 personaje2.setWinner(true);
@@ -52,11 +52,15 @@ public class InteligenciaArtificial{
             }
             
         }else if(numprobabilidad >40 && numprobabilidad<= 67){ //Empate
+            System.out.println(personaje1.getId());
+            System.out.println(personaje2.getId());
             System.out.println("Ocurrio un empate, los personajes vuelven a la cola 1");
             this.simulacion.getEstudio1().getQueue1().Enqueue(personaje1);
             this.simulacion.getEstudio2().getQueue1().Enqueue(personaje2);
             
         }else if(numprobabilidad>67 && numprobabilidad<=100){ //No llevarse acabo
+            System.out.println(personaje1.getId());
+            System.out.println(personaje2.getId());
             System.out.println("La batalla no puede llevarse acabo, se enviaran a la cola de refuerzo");
             this.simulacion.getEstudio1().getQueueRefuerzo().Enqueue(personaje1);
             this.simulacion.getEstudio2().getQueueRefuerzo().Enqueue(personaje2);
