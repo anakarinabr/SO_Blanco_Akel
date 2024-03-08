@@ -5,10 +5,14 @@
 package Interfaz;
 
 import static Main.main.simulacion;
+import javax.accessibility.AccessibleContext;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRootPane;
 import javax.swing.JSpinner;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -36,14 +40,22 @@ public class Simulación extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         CompetidorAVT = new javax.swing.JLabel();
-        Cola1AVT = new javax.swing.JLabel();
-        Cola2AVT = new javax.swing.JLabel();
-        RefuerzoAVT = new javax.swing.JLabel();
-        Cola3AVT = new javax.swing.JLabel();
-        Cola1USM = new javax.swing.JLabel();
-        Cola2USM = new javax.swing.JLabel();
-        Cola3USM = new javax.swing.JLabel();
-        RefuerzoUSM = new javax.swing.JLabel();
+        cola1avatar = new javax.swing.JScrollPane();
+        Cola1AVT = new javax.swing.JTextArea();
+        cola2avatar = new javax.swing.JScrollPane();
+        Cola2AVT = new javax.swing.JTextArea();
+        cola3avatar = new javax.swing.JScrollPane();
+        Cola3AVT = new javax.swing.JTextArea();
+        refuerzoavatar = new javax.swing.JScrollPane();
+        RefuerzoAVT = new javax.swing.JTextArea();
+        cola1unshowmas = new javax.swing.JScrollPane();
+        Cola1USM = new javax.swing.JTextArea();
+        cola2unshowmas = new javax.swing.JScrollPane();
+        Cola2USM = new javax.swing.JTextArea();
+        cola3unshowmas = new javax.swing.JScrollPane();
+        Cola3USM = new javax.swing.JTextArea();
+        refuerzounshowmas = new javax.swing.JScrollPane();
+        RefuerzoUSM = new javax.swing.JTextArea();
         HabilidadAVT = new javax.swing.JLabel();
         VidaAVT = new javax.swing.JLabel();
         AgilidadAVT = new javax.swing.JLabel();
@@ -56,10 +68,12 @@ public class Simulación extends javax.swing.JFrame {
         EstadoIA = new javax.swing.JLabel();
         DuracionBatalla = new javax.swing.JSpinner();
         CompetidorUSM = new javax.swing.JLabel();
-        ColaGanadoresAVT = new javax.swing.JLabel();
-        ColaGanadoresUSM = new javax.swing.JLabel();
         NombreCompetidorAVT = new javax.swing.JLabel();
         NombreCompetidorUSM = new javax.swing.JLabel();
+        colaganadoresunshowmas = new javax.swing.JScrollPane();
+        ColaGanadoresUSM = new javax.swing.JTextArea();
+        colaganadoresavatar = new javax.swing.JScrollPane();
+        ColaGanadoresAVT = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,29 +85,53 @@ public class Simulación extends javax.swing.JFrame {
         CompetidorAVT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonajesAvatar/hama.png"))); // NOI18N
         getContentPane().add(CompetidorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
 
-        Cola1AVT.setText("jLabel1");
-        getContentPane().add(Cola1AVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 170, 30));
+        Cola1AVT.setColumns(20);
+        Cola1AVT.setRows(5);
+        cola1avatar.setViewportView(Cola1AVT);
 
-        Cola2AVT.setText("jLabel2");
-        getContentPane().add(Cola2AVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 180, 30));
+        getContentPane().add(cola1avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, 70));
 
-        RefuerzoAVT.setText("jLabel3");
-        getContentPane().add(RefuerzoAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 180, 30));
+        Cola2AVT.setColumns(20);
+        Cola2AVT.setRows(5);
+        cola2avatar.setViewportView(Cola2AVT);
 
-        Cola3AVT.setText("jLabel4");
-        getContentPane().add(Cola3AVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 170, 30));
+        getContentPane().add(cola2avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, 70));
 
-        Cola1USM.setText("jLabel5");
-        getContentPane().add(Cola1USM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 180, 30));
+        Cola3AVT.setColumns(20);
+        Cola3AVT.setRows(5);
+        cola3avatar.setViewportView(Cola3AVT);
 
-        Cola2USM.setText("jLabel6");
-        getContentPane().add(Cola2USM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 180, 30));
+        getContentPane().add(cola3avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, 70));
 
-        Cola3USM.setText("jLabel7");
-        getContentPane().add(Cola3USM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 180, 30));
+        RefuerzoAVT.setColumns(20);
+        RefuerzoAVT.setRows(5);
+        refuerzoavatar.setViewportView(RefuerzoAVT);
 
-        RefuerzoUSM.setText("jLabel8");
-        getContentPane().add(RefuerzoUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, 180, 30));
+        getContentPane().add(refuerzoavatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, 70));
+
+        Cola1USM.setColumns(20);
+        Cola1USM.setRows(5);
+        cola1unshowmas.setViewportView(Cola1USM);
+
+        getContentPane().add(cola1unshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, 70));
+
+        Cola2USM.setColumns(20);
+        Cola2USM.setRows(5);
+        cola2unshowmas.setViewportView(Cola2USM);
+
+        getContentPane().add(cola2unshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, -1, 70));
+
+        Cola3USM.setColumns(20);
+        Cola3USM.setRows(5);
+        cola3unshowmas.setViewportView(Cola3USM);
+
+        getContentPane().add(cola3unshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, -1, 70));
+
+        RefuerzoUSM.setColumns(20);
+        RefuerzoUSM.setRows(5);
+        refuerzounshowmas.setViewportView(RefuerzoUSM);
+
+        getContentPane().add(refuerzounshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, -1, 60));
 
         HabilidadAVT.setText("0");
         getContentPane().add(HabilidadAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 40, -1));
@@ -134,17 +172,23 @@ public class Simulación extends javax.swing.JFrame {
         CompetidorUSM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonajesUnShowMas/Gary.png"))); // NOI18N
         getContentPane().add(CompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
 
-        ColaGanadoresAVT.setText("jLabel1");
-        getContentPane().add(ColaGanadoresAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 280, 30));
-
-        ColaGanadoresUSM.setText("jLabel1");
-        getContentPane().add(ColaGanadoresUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 190, 30));
-
         NombreCompetidorAVT.setText("jLabel1");
-        getContentPane().add(NombreCompetidorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 130, -1));
+        getContentPane().add(NombreCompetidorAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 160, -1));
 
         NombreCompetidorUSM.setText("jLabel2");
-        getContentPane().add(NombreCompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 140, -1));
+        getContentPane().add(NombreCompetidorUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 150, -1));
+
+        ColaGanadoresUSM.setColumns(20);
+        ColaGanadoresUSM.setRows(5);
+        colaganadoresunshowmas.setViewportView(ColaGanadoresUSM);
+
+        getContentPane().add(colaganadoresunshowmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, -1, 60));
+
+        ColaGanadoresAVT.setColumns(20);
+        ColaGanadoresAVT.setRows(5);
+        colaganadoresavatar.setViewportView(ColaGanadoresAVT);
+
+        getContentPane().add(colaganadoresavatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, -1, 60));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Colorful INTERFAZ (800 x 500 px).png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -156,39 +200,6 @@ public class Simulación extends javax.swing.JFrame {
         simulacion.setTime((int)DuracionBatalla.getValue()*1000);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
-    public JLabel getColaGanadoresUSM() {
-        return ColaGanadoresUSM;
-    }
-
-    public void setColaGanadoresUSM(JLabel ColaGanadoresUSM) {
-        this.ColaGanadoresUSM = ColaGanadoresUSM;
-    }
-    
-     public JLabel getColaGanadoresAVT() {
-        return ColaGanadoresAVT;
-    }
-
-    public void setColaGanadoresAVT(JLabel ColaGanadoresAVT) {
-        this.ColaGanadoresAVT = ColaGanadoresUSM;
-    }
-
-    public JLabel getNombreCompetidorAVT() {
-        return NombreCompetidorAVT;
-    }
-
-    public void setNombreCompetidorAVT(JLabel NombreCompetidorAVT) {
-        this.NombreCompetidorAVT = NombreCompetidorAVT;
-    }
-
-    public JLabel getNombreCompetidorUSM() {
-        return NombreCompetidorUSM;
-    }
-
-    public void setNombreCompetidorUSM(JLabel NombreCompetidorUSM) {
-        this.NombreCompetidorUSM = NombreCompetidorUSM;
-    }
-    
     public JLabel getAgilidadAVT() {
         return AgilidadAVT;
     }
@@ -205,67 +216,84 @@ public class Simulación extends javax.swing.JFrame {
         this.AgilidadUSM = AgilidadUSM;
     }
 
-    public JLabel getCola1AVT() {
+    public JTextArea getCola1AVT() {
         return Cola1AVT;
     }
 
-    public void setCola1AVT(JLabel Cola1AVT) {
+    public void setCola1AVT(JTextArea Cola1AVT) {
         this.Cola1AVT = Cola1AVT;
     }
 
-    public JLabel getCola1USM() {
+    public JTextArea getCola1USM() {
         return Cola1USM;
     }
 
-    public void setCola1USM(JLabel Cola1USM) {
+    public void setCola1USM(JTextArea Cola1USM) {
         this.Cola1USM = Cola1USM;
     }
 
-    public JLabel getCola2AVT() {
+    public JTextArea getCola2AVT() {
         return Cola2AVT;
     }
 
-    public void setCola2AVT(JLabel Cola2AVT) {
+    public void setCola2AVT(JTextArea Cola2AVT) {
         this.Cola2AVT = Cola2AVT;
     }
 
-    public JLabel getCola2USM() {
+    public JTextArea getCola2USM() {
         return Cola2USM;
     }
 
-    public void setCola2USM(JLabel Cola2USM) {
+    public void setCola2USM(JTextArea Cola2USM) {
         this.Cola2USM = Cola2USM;
     }
 
-    public JLabel getCola3AVT() {
+    public JTextArea getCola3AVT() {
         return Cola3AVT;
     }
 
-    public void setCola3AVT(JLabel Cola3AVT) {
+    public void setCola3AVT(JTextArea Cola3AVT) {
         this.Cola3AVT = Cola3AVT;
     }
 
-    public JLabel getCola3USM() {
+    public JTextArea getCola3USM() {
         return Cola3USM;
     }
 
-    public void setCola3USM(JLabel Cola3USM) {
+    public void setCola3USM(JTextArea Cola3USM) {
         this.Cola3USM = Cola3USM;
     }
-    public JLabel getCompetidorUSM() {
-        return CompetidorUSM;
+
+    public JTextArea getColaGanadoresAVT() {
+        return ColaGanadoresAVT;
     }
 
-    public void setCompetidorUSM(JLabel CompetidorUSM) {
-        this.CompetidorUSM = CompetidorUSM;
+    public void setColaGanadoresAVT(JTextArea ColaGanadoresAVT) {
+        this.ColaGanadoresAVT = ColaGanadoresAVT;
+    }
+
+    public JTextArea getColaGanadoresUSM() {
+        return ColaGanadoresUSM;
+    }
+
+    public void setColaGanadoresUSM(JTextArea ColaGanadoresUSM) {
+        this.ColaGanadoresUSM = ColaGanadoresUSM;
     }
 
     public JLabel getCompetidorAVT() {
         return CompetidorAVT;
     }
 
-    public void setCompetidorAVT(JLabel CompetirdorAVT) {
-        this.CompetidorAVT = CompetirdorAVT;
+    public void setCompetidorAVT(JLabel CompetidorAVT) {
+        this.CompetidorAVT = CompetidorAVT;
+    }
+
+    public JLabel getCompetidorUSM() {
+        return CompetidorUSM;
+    }
+
+    public void setCompetidorUSM(JLabel CompetidorUSM) {
+        this.CompetidorUSM = CompetidorUSM;
     }
 
     public JSpinner getDuracionBatalla() {
@@ -316,19 +344,35 @@ public class Simulación extends javax.swing.JFrame {
         this.HabilidadUSM = HabilidadUSM;
     }
 
-    public JLabel getRefuerzoAVT() {
+    public JLabel getNombreCompetidorAVT() {
+        return NombreCompetidorAVT;
+    }
+
+    public void setNombreCompetidorAVT(JLabel NombreCompetidorAVT) {
+        this.NombreCompetidorAVT = NombreCompetidorAVT;
+    }
+
+    public JLabel getNombreCompetidorUSM() {
+        return NombreCompetidorUSM;
+    }
+
+    public void setNombreCompetidorUSM(JLabel NombreCompetidorUSM) {
+        this.NombreCompetidorUSM = NombreCompetidorUSM;
+    }
+
+    public JTextArea getRefuerzoAVT() {
         return RefuerzoAVT;
     }
 
-    public void setRefuerzoAVT(JLabel RefuerzoAVT) {
+    public void setRefuerzoAVT(JTextArea RefuerzoAVT) {
         this.RefuerzoAVT = RefuerzoAVT;
     }
 
-    public JLabel getRefuerzoUSM() {
+    public JTextArea getRefuerzoUSM() {
         return RefuerzoUSM;
     }
 
-    public void setRefuerzoUSM(JLabel RefuerzoUSM) {
+    public void setRefuerzoUSM(JTextArea RefuerzoUSM) {
         this.RefuerzoUSM = RefuerzoUSM;
     }
 
@@ -348,6 +392,70 @@ public class Simulación extends javax.swing.JFrame {
         this.VidaUSM = VidaUSM;
     }
 
+    public JScrollPane getCola1avatar() {
+        return cola1avatar;
+    }
+
+    public void setCola1avatar(JScrollPane cola1avatar) {
+        this.cola1avatar = cola1avatar;
+    }
+
+    public JScrollPane getCola1unshowmas() {
+        return cola1unshowmas;
+    }
+
+    public void setCola1unshowmas(JScrollPane cola1unshowmas) {
+        this.cola1unshowmas = cola1unshowmas;
+    }
+
+    public JScrollPane getCola2avatar() {
+        return cola2avatar;
+    }
+
+    public void setCola2avatar(JScrollPane cola2avatar) {
+        this.cola2avatar = cola2avatar;
+    }
+
+    public JScrollPane getCola2unshowmas() {
+        return cola2unshowmas;
+    }
+
+    public void setCola2unshowmas(JScrollPane cola2unshowmas) {
+        this.cola2unshowmas = cola2unshowmas;
+    }
+
+    public JScrollPane getCola3avatar() {
+        return cola3avatar;
+    }
+
+    public void setCola3avatar(JScrollPane cola3avatar) {
+        this.cola3avatar = cola3avatar;
+    }
+
+    public JScrollPane getCola3unshowmas() {
+        return cola3unshowmas;
+    }
+
+    public void setCola3unshowmas(JScrollPane cola3unshowmas) {
+        this.cola3unshowmas = cola3unshowmas;
+    }
+
+    public JScrollPane getColaganadoresavatar() {
+        return colaganadoresavatar;
+    }
+
+    public void setColaganadoresavatar(JScrollPane colaganadoresavatar) {
+        this.colaganadoresavatar = colaganadoresavatar;
+    }
+
+    public JScrollPane getColaganadoresunshowmas() {
+        return colaganadoresunshowmas;
+    }
+
+    public void setColaganadoresunshowmas(JScrollPane colaganadoresunshowmas) {
+        this.colaganadoresunshowmas = colaganadoresunshowmas;
+    }
+
     public JButton getjButton1() {
         return jButton1;
     }
@@ -356,12 +464,12 @@ public class Simulación extends javax.swing.JFrame {
         this.jButton1 = jButton1;
     }
 
-    public JLabel getjLabel1() {
-        return ColaGanadoresUSM;
+    public JLabel getjLabel3() {
+        return jLabel3;
     }
 
-    public void setjLabel1(JLabel jLabel1) {
-        this.ColaGanadoresUSM = jLabel1;
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
     }
 
     public JPanel getjPanel1() {
@@ -371,8 +479,23 @@ public class Simulación extends javax.swing.JFrame {
     public void setjPanel1(JPanel jPanel1) {
         this.jPanel1 = jPanel1;
     }
-    
-    
+
+    public JScrollPane getRefuerzoavatar() {
+        return refuerzoavatar;
+    }
+
+    public void setRefuerzoavatar(JScrollPane refuerzoavatar) {
+        this.refuerzoavatar = refuerzoavatar;
+    }
+
+    public JScrollPane getRefuerzounshowmas() {
+        return refuerzounshowmas;
+    }
+
+    public void setRefuerzounshowmas(JScrollPane refuerzounshowmas) {
+        this.refuerzounshowmas = refuerzounshowmas;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -411,14 +534,14 @@ public class Simulación extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AgilidadAVT;
     private javax.swing.JLabel AgilidadUSM;
-    private javax.swing.JLabel Cola1AVT;
-    private javax.swing.JLabel Cola1USM;
-    private javax.swing.JLabel Cola2AVT;
-    private javax.swing.JLabel Cola2USM;
-    private javax.swing.JLabel Cola3AVT;
-    private javax.swing.JLabel Cola3USM;
-    private javax.swing.JLabel ColaGanadoresAVT;
-    private javax.swing.JLabel ColaGanadoresUSM;
+    private javax.swing.JTextArea Cola1AVT;
+    private javax.swing.JTextArea Cola1USM;
+    private javax.swing.JTextArea Cola2AVT;
+    private javax.swing.JTextArea Cola2USM;
+    private javax.swing.JTextArea Cola3AVT;
+    private javax.swing.JTextArea Cola3USM;
+    private javax.swing.JTextArea ColaGanadoresAVT;
+    private javax.swing.JTextArea ColaGanadoresUSM;
     private javax.swing.JLabel CompetidorAVT;
     private javax.swing.JLabel CompetidorUSM;
     private javax.swing.JSpinner DuracionBatalla;
@@ -429,12 +552,22 @@ public class Simulación extends javax.swing.JFrame {
     private javax.swing.JLabel HabilidadUSM;
     private javax.swing.JLabel NombreCompetidorAVT;
     private javax.swing.JLabel NombreCompetidorUSM;
-    private javax.swing.JLabel RefuerzoAVT;
-    private javax.swing.JLabel RefuerzoUSM;
+    private javax.swing.JTextArea RefuerzoAVT;
+    private javax.swing.JTextArea RefuerzoUSM;
     private javax.swing.JLabel VidaAVT;
     private javax.swing.JLabel VidaUSM;
+    private javax.swing.JScrollPane cola1avatar;
+    private javax.swing.JScrollPane cola1unshowmas;
+    private javax.swing.JScrollPane cola2avatar;
+    private javax.swing.JScrollPane cola2unshowmas;
+    private javax.swing.JScrollPane cola3avatar;
+    private javax.swing.JScrollPane cola3unshowmas;
+    private javax.swing.JScrollPane colaganadoresavatar;
+    private javax.swing.JScrollPane colaganadoresunshowmas;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane refuerzoavatar;
+    private javax.swing.JScrollPane refuerzounshowmas;
     // End of variables declaration//GEN-END:variables
 }

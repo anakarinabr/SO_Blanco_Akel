@@ -18,8 +18,6 @@ public class Personaje {
     private boolean winner;
     private int[] caracteristicas; //array con los valores de habilidad, vida, fuerza y agilidad
     private int contadorCiclos;
-    private String [] poder;//otra opcion es crear dos poderes para avatar y 2 para usm y establecer cual es mejor que cual y asi esta la oppcion de empate ganador o que ninguno gane tambien idk son las dos ideas que se me ocurren 
-   
     
     private String [][] datosPersonajesUSM = {{"src//PersonajesUnShowMas/Gary.png", "Gary"}, {"src//PersonajesUnShowMas/benson.png","Benson"}, {"src//PersonajesUnShowMas/carl.png", "Carl"}, {"src//PersonajesUnShowMas/cj.png", "CJ"}, 
         {"src//PersonajesUnShowMas/dr henry.png", "Dr Henry"}, {"src//PersonajesUnShowMas/eileen.png", "Eileen"}, {"src//PersonajesUnShowMas/fantasmin.png", "Fantasmin"}, {"src//PersonajesUnShowMas/jennifer.png", "Jeniffer"}, {"src//PersonajesUnShowMas/maellard.png", "Maellard"}, 
@@ -101,14 +99,7 @@ public class Personaje {
         this.caracteristicas = caracteristicas;
     }
 
-    public String[] getPoder() {
-        return poder;
-    }
-
-    public void setPoder(String[] poder) {
-        this.poder = poder;
-    }
-
+   
     public int getContadorCiclos() {
         return contadorCiclos;
     }
