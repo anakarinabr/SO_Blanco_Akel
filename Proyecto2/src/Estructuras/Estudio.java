@@ -19,6 +19,7 @@ public class Estudio {
     private Queue queueRefuerzo;
     private Queue queueGanadores;
     private int contadorPersonajes;
+    private int victorias;
 
     public Estudio(String nombre) {
         this.nombre = nombre;
@@ -28,6 +29,7 @@ public class Estudio {
         this.queueRefuerzo = new Queue<Personaje>();
         this.queueGanadores = new Queue<Personaje>();
         this.contadorPersonajes = 0;
+        this.victorias = 0;
     }
 
     public Personaje GeneradorPersonajes() {
@@ -76,8 +78,8 @@ public class Estudio {
         return personaje;
 
     }
-    
-    public void inanicion() { 
+
+    public void inanicion() {
         //Pasar de prioridad 2 a 1
         Node pAux = null;
         if (!queue2.isEmpty()) {
@@ -113,6 +115,21 @@ public class Estudio {
             }
             pAux2 = pAux2.getpNext();
         }
+    }
+
+    public void UpdateRefuerzo() {
+
+        Random random = new Random();
+        int numprobabilidad = random.nextInt(101);
+        if (!this.queueRefuerzo.isEmpty()) {
+            Personaje personaje = (Personaje) this.queueRefuerzo.Dequeue().getData();
+            if (numprobabilidad <= 40) {
+                this.queue1.Enqueue(personaje);
+            }else{
+                this.queueRefuerzo.Enqueue(personaje);
+            }
+        }
+
     }
 
     //GETTERS AND SETTERS
@@ -170,6 +187,14 @@ public class Estudio {
 
     public void setQueueGanadores(Queue queueGanadores) {
         this.queueGanadores = queueGanadores;
+    }
+
+    public int getVictorias() {
+        return victorias;
+    }
+
+    public void setVictorias(int victorias) {
+        this.victorias = victorias;
     }
 
 }

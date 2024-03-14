@@ -10,12 +10,12 @@ import java.util.Random;
  *
  * @author Ana Blanco
  */
-public class Personaje {
+public class Personaje<T> {
     private String id;
     private String[] datos; // {url, nombre}
     private int prioridad;
     private String estudio; 
-    private boolean winner;
+    private T winner;
     private int[] caracteristicas; //array con los valores de habilidad, vida, fuerza y agilidad
     private int contadorCiclos;
     
@@ -83,11 +83,11 @@ public class Personaje {
         this.prioridad = prioridad;
     }
 
-    public boolean isWinner() {
+    public T isWinner() {
         return winner;
     }
 
-    public void setWinner(boolean winner) {
+    public void setWinner(T winner) {
         this.winner = winner;
     }
 

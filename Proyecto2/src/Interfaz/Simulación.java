@@ -72,7 +72,9 @@ public class Simulación extends javax.swing.JFrame {
         ColaGanadoresUSM = new javax.swing.JTextArea();
         colaganadoresavatar = new javax.swing.JScrollPane();
         ColaGanadoresAVT = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
+        VictoriasAVT = new javax.swing.JLabel();
+        VictoriasUSM = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -198,7 +200,7 @@ public class Simulación extends javax.swing.JFrame {
         EstadoIA.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         EstadoIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EstadoIA.setText("jLabel3");
-        getContentPane().add(EstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 110, -1));
+        getContentPane().add(EstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 530, 150, -1));
         getContentPane().add(DuracionBatalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 520, 100, -1));
 
         CompetidorUSM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonajesUnShowMas/Gary.png"))); // NOI18N
@@ -234,14 +236,22 @@ public class Simulación extends javax.swing.JFrame {
 
         getContentPane().add(colaganadoresavatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 220, 80));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Colorful INTERFAZ (800 x 500 px) (2).png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        VictoriasAVT.setText("0");
+        getContentPane().add(VictoriasAVT, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 70, 50, -1));
+
+        VictoriasUSM.setText("0");
+        getContentPane().add(VictoriasUSM, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 80, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Colorful INTERFAZ (800 x 500 px).png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        simulacion.setTime((int)DuracionBatalla.getValue()*1000);
+        int duracion = (int)DuracionBatalla.getValue();
+        simulacion.getAI().setDayDuration(duracion);
+        simulacion.setTime(duracion*1000);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public JLabel getAgilidadAVT() {
@@ -508,12 +518,20 @@ public class Simulación extends javax.swing.JFrame {
         this.jButton1 = jButton1;
     }
 
-    public JLabel getjLabel2() {
-        return jLabel2;
+    public JLabel getVictoriasAVT() {
+        return VictoriasAVT;
     }
 
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
+    public void setVictoriasAVT(JLabel VictoriasAVT) {
+        this.VictoriasAVT = VictoriasAVT;
+    }
+
+    public JLabel getVictoriasUSM() {
+        return VictoriasUSM;
+    }
+
+    public void setVictoriasUSM(JLabel VictoriasUSM) {
+        this.VictoriasUSM = VictoriasUSM;
     }
 
     public JPanel getjPanel1() {
@@ -598,6 +616,8 @@ public class Simulación extends javax.swing.JFrame {
     private javax.swing.JLabel NombreCompetidorUSM;
     private javax.swing.JTextArea RefuerzoAVT;
     private javax.swing.JTextArea RefuerzoUSM;
+    private javax.swing.JLabel VictoriasAVT;
+    private javax.swing.JLabel VictoriasUSM;
     private javax.swing.JLabel VidaAVT;
     private javax.swing.JLabel VidaUSM;
     private javax.swing.JScrollPane cola1avatar;
@@ -609,7 +629,7 @@ public class Simulación extends javax.swing.JFrame {
     private javax.swing.JScrollPane colaganadoresavatar;
     private javax.swing.JScrollPane colaganadoresunshowmas;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane refuerzoavatar;
     private javax.swing.JScrollPane refuerzounshowmas;

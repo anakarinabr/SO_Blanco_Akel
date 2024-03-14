@@ -8,6 +8,7 @@ import static Main.main.simulacion;
 import static Main.main.interfaz;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -43,19 +44,28 @@ public class Simulacion extends Thread {
         }
         while (true) {
             Personaje[] competidores = this.admin.EscogerPersonajes();
-            ActualizarLabels(competidores);
-            this.AI.batalla(competidores[0], competidores[1]);
-            this.estudio1.inanicion();
-            this.estudio2.inanicion();
             try {
-                sleep(time * 1000);
+                ActualizarLabels(competidores);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Simulacion.class.getName()).log(Level.SEVERE, null, ex);
             }
+            this.AI.setEstado("Esperando");
+            interfaz.getEstadoIA().setText(this.AI.getEstado());
+            long valor1 =  (long) (this.time*0.25*1000);
+            try {
+                sleep(valor1);
+                 this.AI.batalla(competidores[0], competidores[1]);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Simulacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.estudio1.inanicion();
+            this.estudio2.inanicion();
+            this.estudio1.UpdateRefuerzo();
+            this.estudio2.UpdateRefuerzo();
         }
     }
 
-    public void ActualizarLabels(Personaje[] competidores) {
+    public void ActualizarLabels(Personaje[] competidores) throws InterruptedException {
         //Estudio1 (AVATAR)
         interfaz.getCola1AVT().setText(this.estudio1.getQueue1().print());
         interfaz.getCola2AVT().setText(this.estudio1.getQueue2().print());
@@ -83,17 +93,6 @@ public class Simulacion extends Thread {
         interfaz.getAgilidadUSM().setText(Integer.toString(competidores[1].getCaracteristicas()[3]));
         interfaz.getColaGanadoresUSM().setText(this.estudio2.getQueueGanadores().print());
 
-        //Mostrar ganador
-        if (competidores[0].isWinner()){
-                interfaz.getEstadoIA().setText("Ganador: " + competidores[0].getId());
-        } else if (competidores[1].isWinner()) {
-            interfaz.getEstadoIA().setText("Ganador: " + competidores[1].getId());
-        } else {
-            interfaz.getEstadoIA().setText("Empate");
-        }
-        
-        
-        
         
         try {
             interfaz.getCompetidorAVT().setIcon(new ImageIcon(ImageIO.read(new File(competidores[0].getDatos()[0]))));
@@ -103,6 +102,7 @@ public class Simulacion extends Thread {
         }
 
     }
+   
 
     //GETTERS AND SETTERS
     public Estudio getEstudio1() {
