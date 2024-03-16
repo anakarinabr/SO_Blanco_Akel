@@ -40,6 +40,7 @@ public class InteligenciaArtificial {
         int puntajePersonaje2 = calcularPuntaje(personaje2);
 
         if (numprobabilidad <= 40) { //Existir Ganador
+            
             if (puntajePersonaje1 > puntajePersonaje2) {
                 System.out.println(personaje1.getId() + " Puntaje: " + puntajePersonaje1);
                 System.out.println(personaje2.getId() + " Puntaje: " + puntajePersonaje2);
@@ -49,7 +50,8 @@ public class InteligenciaArtificial {
                 this.simulacion.getEstudio1().setVictorias(this.simulacion.getEstudio1().getVictorias() + 1);
                 interfaz.getVictoriasAVT().setText(Integer.toString(this.simulacion.getEstudio1().getVictorias()));
                 this.simulacion.getEstudio1().getQueueGanadores().Enqueue(personaje1);
-            } else {  // Personaje1 < Personaje2) 
+                
+            } else if (puntajePersonaje1 < puntajePersonaje2){  
                 System.out.println(personaje1.getId() + " Puntaje: " + puntajePersonaje1);
                 System.out.println(personaje2.getId() + " Puntaje: " + puntajePersonaje2);
                 System.out.println("El ganador es: " + personaje2.getId());
@@ -58,9 +60,28 @@ public class InteligenciaArtificial {
                 this.simulacion.getEstudio2().getQueueGanadores().Enqueue(personaje2);
                 this.simulacion.getEstudio2().setVictorias(this.simulacion.getEstudio2().getVictorias() + 1);
                 interfaz.getVictoriasUSM().setText(Integer.toString(this.simulacion.getEstudio2().getVictorias()));
+                
+            } else { // puntajePersonaje1 = puntajePersonaje2
+                int randomEmpate = random.nextInt(100) + 1;
+                if (randomEmpate <=50){
+                    System.out.println("El ganador es: " + personaje1.getId());
+                    personaje1.setWinner(true);
+                    personaje2.setWinner(false);
+                    this.simulacion.getEstudio1().setVictorias(this.simulacion.getEstudio1().getVictorias() + 1);
+                    interfaz.getVictoriasAVT().setText(Integer.toString(this.simulacion.getEstudio1().getVictorias()));
+                    this.simulacion.getEstudio1().getQueueGanadores().Enqueue(personaje1);
+                } else{
+                    System.out.println("El ganador es: " + personaje2.getId());
+                    personaje1.setWinner(false);
+                    personaje2.setWinner(true);
+                    this.simulacion.getEstudio2().getQueueGanadores().Enqueue(personaje2);
+                    this.simulacion.getEstudio2().setVictorias(this.simulacion.getEstudio2().getVictorias() + 1);
+                    interfaz.getVictoriasUSM().setText(Integer.toString(this.simulacion.getEstudio2().getVictorias()));
+                }
             }
 
         } else if (numprobabilidad > 40 && numprobabilidad <= 67) { //Empate
+            
             System.out.println(personaje1.getId());
             System.out.println(personaje2.getId());
             personaje1.setWinner(false);
@@ -70,6 +91,7 @@ public class InteligenciaArtificial {
             this.simulacion.getEstudio2().getQueue1().Enqueue(personaje2);
 
         } else if (numprobabilidad > 67 && numprobabilidad <= 100) { //No llevarse acabo
+            
             System.out.println(personaje1.getId());
             System.out.println(personaje2.getId());
             personaje1.setWinner(null);
