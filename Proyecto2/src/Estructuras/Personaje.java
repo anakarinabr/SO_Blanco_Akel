@@ -27,7 +27,7 @@ public class Personaje<T> {
     
     private String[][] datosPersonajesAVT = {{ "src//PersonajesAvatar/aang.png", "Aang"}, {"src//PersonajesAvatar/appa.png", "Appa"}, {"src//PersonajesAvatar/avatar roku.png", "Avatar Roku"}, {"src//PersonajesAvatar/azula.png", "Azula"}, {"src//PersonajesAvatar/hakoda.png", "Hakoda"}, 
         {"src//PersonajesAvatar/hama.png", "Hama"}, {"src//PersonajesAvatar/iroh.png", "Iroh"}, {"src//PersonajesAvatar/jet.png", "Jet"}, {"src//PersonajesAvatar/katara.png", "Katara"}, {"src//PersonajesAvatar/long feng.png", "Long Feng"},{ "src//PersonajesAvatar/mai.png", "Mai"}, 
-        {"src//PersonajesAvatar/onji.png"}, {"src//PersonajesAvatar/ozai.png","Ozai"}, {"src//PersonajesAvatar/pipsqueak.png", "Pipsqueak"}, {"src//PersonajesAvatar/princesa yue.png", "Princesa Yue"}, {"src//PersonajesAvatar/principe zuko.png", "Principe Zuko"}, 
+        {"src//PersonajesAvatar/onji.png", "Onji"}, {"src//PersonajesAvatar/ozai.png","Ozai"}, {"src//PersonajesAvatar/pipsqueak.png", "Pipsqueak"}, {"src//PersonajesAvatar/princesa yue.png", "Princesa Yue"}, {"src//PersonajesAvatar/principe zuko.png", "Principe Zuko"}, 
         {"src//PersonajesAvatar/sokka.png", "Sokka"},{"src//PersonajesAvatar/toph beifong.png", "Toph Beifong"}, {"src//PersonajesAvatar/ty lee.png", "Ty Lee"}};
 
     @SuppressWarnings("empty-statement")

@@ -76,7 +76,7 @@ public class Simulacion extends Thread {
         interfaz.getCola3AVT().setText(this.estudio1.getQueue3().print());
         interfaz.getRefuerzoAVT().setText(this.estudio1.getQueueRefuerzo().print());
         interfaz.getColaGanadoresAVT().setText(this.estudio1.getQueueGanadores().print());
-        System.out.println(competidores[0].getDatos()[1] + ":   "+ competidores[0].getDatos());
+        System.out.println(competidores[0].getDatos());
         interfaz.getNombreCompetidorAVT().setText(competidores[0].getDatos()[1] + ". Id: " + competidores[0].getId());
         interfaz.getHabilidadAVT().setText(Integer.toString(competidores[0].getCaracteristicas()[0]));
         interfaz.getVidaAVT().setText(Integer.toString(competidores[0].getCaracteristicas()[1]));
