@@ -44,25 +44,29 @@ public class Simulacion extends Thread {
         }
         while (true) {
             Personaje[] competidores = this.admin.EscogerPersonajes();
-            try {
-                ActualizarLabels(competidores);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Simulacion.class.getName()).log(Level.SEVERE, null, ex);
+
+            if (competidores[0] != null && competidores[1] != null) {
+                try {
+                    ActualizarLabels(competidores);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Simulacion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.AI.setEstado("Esperando");
+                interfaz.getEstadoIA().setText(this.AI.getEstado());
+                long valor1 = (long) (this.time * 0.25*1000);
+                try {
+                    sleep(valor1);
+                    this.AI.batalla(competidores[0], competidores[1]);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Simulacion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.estudio1.inanicion();
+                this.estudio2.inanicion();
+                this.estudio1.UpdateRefuerzo();
+                this.estudio2.UpdateRefuerzo();
             }
-            this.AI.setEstado("Esperando");
-            interfaz.getEstadoIA().setText(this.AI.getEstado());
-            long valor1 =  (long) (this.time*0.25*1000);
-            try {
-                sleep(valor1);
-                 this.AI.batalla(competidores[0], competidores[1]);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Simulacion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            this.estudio1.inanicion();
-            this.estudio2.inanicion();
-            this.estudio1.UpdateRefuerzo();
-            this.estudio2.UpdateRefuerzo();
         }
+
     }
 
     public void ActualizarLabels(Personaje[] competidores) throws InterruptedException {
@@ -72,13 +76,13 @@ public class Simulacion extends Thread {
         interfaz.getCola3AVT().setText(this.estudio1.getQueue3().print());
         interfaz.getRefuerzoAVT().setText(this.estudio1.getQueueRefuerzo().print());
         interfaz.getColaGanadoresAVT().setText(this.estudio1.getQueueGanadores().print());
-        interfaz.getNombreCompetidorAVT().setText(competidores[0].getDatos()[1] + ". Id: " +competidores[0].getId());
+        System.out.println(competidores[0].getDatos()[1] + ":   "+ competidores[0].getDatos());
+        interfaz.getNombreCompetidorAVT().setText(competidores[0].getDatos()[1] + ". Id: " + competidores[0].getId());
         interfaz.getHabilidadAVT().setText(Integer.toString(competidores[0].getCaracteristicas()[0]));
         interfaz.getVidaAVT().setText(Integer.toString(competidores[0].getCaracteristicas()[1]));
         interfaz.getFuerzaAVT().setText(Integer.toString(competidores[0].getCaracteristicas()[2]));
         interfaz.getAgilidadAVT().setText(Integer.toString(competidores[0].getCaracteristicas()[3]));
         interfaz.getColaGanadoresAVT().setText(this.estudio1.getQueueGanadores().print());
-        
 
         //Estudio2 (UN SHOW MAS)
         interfaz.getCola1USM().setText(this.estudio2.getQueue1().print());
@@ -86,14 +90,13 @@ public class Simulacion extends Thread {
         interfaz.getCola3USM().setText(this.estudio2.getQueue3().print());
         interfaz.getRefuerzoUSM().setText(this.estudio2.getQueueRefuerzo().print());
         interfaz.getColaGanadoresUSM().setText(this.estudio2.getQueueGanadores().print());
-        interfaz.getNombreCompetidorUSM().setText(competidores[1].getDatos()[1] + ". Id: " +competidores[1].getId());
+        interfaz.getNombreCompetidorUSM().setText(competidores[1].getDatos()[1] + ". Id: " + competidores[1].getId());
         interfaz.getHabilidadUSM().setText(Integer.toString(competidores[1].getCaracteristicas()[0]));
         interfaz.getVidaUSM().setText(Integer.toString(competidores[1].getCaracteristicas()[1]));
         interfaz.getFuerzaUSM().setText(Integer.toString(competidores[1].getCaracteristicas()[2]));
         interfaz.getAgilidadUSM().setText(Integer.toString(competidores[1].getCaracteristicas()[3]));
         interfaz.getColaGanadoresUSM().setText(this.estudio2.getQueueGanadores().print());
 
-        
         try {
             interfaz.getCompetidorAVT().setIcon(new ImageIcon(ImageIO.read(new File(competidores[0].getDatos()[0]))));
             interfaz.getCompetidorUSM().setIcon(new ImageIcon(ImageIO.read(new File(competidores[1].getDatos()[0]))));
@@ -102,7 +105,6 @@ public class Simulacion extends Thread {
         }
 
     }
-   
 
     //GETTERS AND SETTERS
     public Estudio getEstudio1() {

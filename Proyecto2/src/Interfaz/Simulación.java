@@ -251,7 +251,7 @@ public class Simulación extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int duracion = (int)DuracionBatalla.getValue();
         simulacion.getAI().setDayDuration(duracion);
-        simulacion.setTime(duracion*1000);
+        simulacion.setTime(duracion);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public JLabel getAgilidadAVT() {

@@ -7,6 +7,7 @@ package Estructuras;
 import static Main.main.interfaz;
 import static java.lang.Thread.sleep;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,38 +46,46 @@ public class InteligenciaArtificial {
                 System.out.println(personaje1.getId() + " Puntaje: " + puntajePersonaje1);
                 System.out.println(personaje2.getId() + " Puntaje: " + puntajePersonaje2);
                 System.out.println("El ganador es: " + personaje1.getId());
+                interfaz.getEstadoIA().setText("Ganador: " + personaje1.getId());
                 personaje1.setWinner(true);
                 personaje2.setWinner(false);
                 this.simulacion.getEstudio1().setVictorias(this.simulacion.getEstudio1().getVictorias() + 1);
                 interfaz.getVictoriasAVT().setText(Integer.toString(this.simulacion.getEstudio1().getVictorias()));
                 this.simulacion.getEstudio1().getQueueGanadores().Enqueue(personaje1);
+                interfaz.getColaGanadoresAVT().setText(this.simulacion.getEstudio1().getQueueGanadores().print());
                 
             } else if (puntajePersonaje1 < puntajePersonaje2){  
                 System.out.println(personaje1.getId() + " Puntaje: " + puntajePersonaje1);
                 System.out.println(personaje2.getId() + " Puntaje: " + puntajePersonaje2);
                 System.out.println("El ganador es: " + personaje2.getId());
+                interfaz.getEstadoIA().setText("Ganador: " + personaje2.getId());
                 personaje1.setWinner(false);
                 personaje2.setWinner(true);
                 this.simulacion.getEstudio2().getQueueGanadores().Enqueue(personaje2);
                 this.simulacion.getEstudio2().setVictorias(this.simulacion.getEstudio2().getVictorias() + 1);
                 interfaz.getVictoriasUSM().setText(Integer.toString(this.simulacion.getEstudio2().getVictorias()));
+                interfaz.getColaGanadoresUSM().setText(this.simulacion.getEstudio2().getQueueGanadores().print());
                 
             } else { // puntajePersonaje1 = puntajePersonaje2
                 int randomEmpate = random.nextInt(100) + 1;
                 if (randomEmpate <=50){
                     System.out.println("El ganador es: " + personaje1.getId());
+                    interfaz.getEstadoIA().setText("Ganador: " + personaje1.getId());
                     personaje1.setWinner(true);
                     personaje2.setWinner(false);
                     this.simulacion.getEstudio1().setVictorias(this.simulacion.getEstudio1().getVictorias() + 1);
                     interfaz.getVictoriasAVT().setText(Integer.toString(this.simulacion.getEstudio1().getVictorias()));
                     this.simulacion.getEstudio1().getQueueGanadores().Enqueue(personaje1);
+                    interfaz.getColaGanadoresAVT().setText(this.simulacion.getEstudio1().getQueueGanadores().print());
                 } else{
                     System.out.println("El ganador es: " + personaje2.getId());
+                    interfaz.getEstadoIA().setText("Ganador: " + personaje2.getId());
                     personaje1.setWinner(false);
                     personaje2.setWinner(true);
                     this.simulacion.getEstudio2().getQueueGanadores().Enqueue(personaje2);
                     this.simulacion.getEstudio2().setVictorias(this.simulacion.getEstudio2().getVictorias() + 1);
                     interfaz.getVictoriasUSM().setText(Integer.toString(this.simulacion.getEstudio2().getVictorias()));
+                    interfaz.getColaGanadoresUSM().setText(this.simulacion.getEstudio2().getQueueGanadores().print());
                 }
             }
 
@@ -87,6 +96,7 @@ public class InteligenciaArtificial {
             personaje1.setWinner(false);
             personaje2.setWinner(false);
             System.out.println("Ocurrio un empate, los personajes vuelven a la cola 1");
+            interfaz.getEstadoIA().setText("Empate");
             this.simulacion.getEstudio1().getQueue1().Enqueue(personaje1);
             this.simulacion.getEstudio2().getQueue1().Enqueue(personaje2);
 
@@ -97,11 +107,14 @@ public class InteligenciaArtificial {
             personaje1.setWinner(null);
             personaje2.setWinner(null);
             System.out.println("La batalla no puede llevarse acabo, se enviaran a la cola de refuerzo");
+            interfaz.getEstadoIA().setText("No hay combate");
             this.simulacion.getEstudio1().getQueueRefuerzo().Enqueue(personaje1);
             this.simulacion.getEstudio2().getQueueRefuerzo().Enqueue(personaje2);
         }
-
-        ShowWinners(personaje1, personaje2);
+        
+        long valor2 = (long) (this.dayDuration * 0.25 * 1000);
+        sleep(valor2);
+//        ShowWinners(personaje1, personaje2);
     }
 
     public int calcularPuntaje(Personaje personaje) {
