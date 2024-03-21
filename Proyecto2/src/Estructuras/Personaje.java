@@ -107,7 +107,8 @@ public class Personaje<T> {
 
     public void setContadorCiclos(int contadorCiclos) {
         this.contadorCiclos = contadorCiclos;
-    }   
+    }
+    
     
     
 }

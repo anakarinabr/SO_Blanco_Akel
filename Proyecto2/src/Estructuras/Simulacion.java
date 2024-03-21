@@ -36,7 +36,9 @@ public class Simulacion extends Thread {
 
     @Override
     public void run() {
-
+        
+       PersonajesPrincipales();      
+     
         for (int i = 0; i < 20; i++) {
             Personaje personaje = this.getEstudio1().GeneradorPersonajes();
             Personaje personaje2 = this.getEstudio2().GeneradorPersonajes();
@@ -104,6 +106,30 @@ public class Simulacion extends Thread {
             Logger.getLogger(Simulacion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    
+    public void PersonajesPrincipales(){
+        //Personajes en cada cola
+        Personaje personajeAVT = this.getEstudio1().GeneradorPersonajes();
+        personajeAVT.setPrioridad(1);
+        this.estudio1.getQueue1().Enqueue(personajeAVT);
+        Personaje personajeUSM = this.getEstudio2().GeneradorPersonajes();
+        personajeUSM.setPrioridad(1);
+        this.estudio2.getQueue1().Enqueue(personajeUSM);
+        
+        Personaje personaje2 = this.getEstudio1().GeneradorPersonajes();
+        personaje2.setPrioridad(2);
+        this.estudio1.getQueue2().Enqueue(personaje2);
+        Personaje personaje2U = this.getEstudio2().GeneradorPersonajes();
+        personaje2U.setPrioridad(2);
+        this.estudio2.getQueue2().Enqueue(personaje2U);
+        
+        Personaje personaje3 = this.getEstudio1().GeneradorPersonajes();
+        personaje3.setPrioridad(3);
+        this.estudio1.getQueue3().Enqueue(personaje3);
+        Personaje personaje3U = this.getEstudio2().GeneradorPersonajes();
+        personaje3U.setPrioridad(3);
+        this.estudio2.getQueue3().Enqueue(personaje3U);
     }
 
     //GETTERS AND SETTERS
